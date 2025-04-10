@@ -9,6 +9,7 @@
 *___model_SnapShot*.launch
 states/
 model/
+traces_*
 
 .vscode
 **/.DS_Store

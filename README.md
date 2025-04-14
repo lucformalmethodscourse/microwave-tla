@@ -1,5 +1,7 @@
 # TLA+ Microwave Model
 
+[![Syntax-check models](https://github.com/lucformalmethodscourse/microwave-tla/actions/workflows/main.yml/badge.svg)](https://github.com/lucformalmethodscourse/microwave-tla/actions/workflows/main.yml)
+
 This example models a very basic microwave oven with very simple state:
 
 - door open or closed

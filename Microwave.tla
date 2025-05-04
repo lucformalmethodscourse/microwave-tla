@@ -102,7 +102,7 @@ FSpec == Spec /\ WF_vars(Tick)
 DoorSafety == door = OPEN => radiation = OFF
 
 \* Temporal check to detect indefinite radiation
-HeatLiveness == radiation = ON ~> radiation = OFF
+HeatLiveness == [](radiation = ON ~> radiation = OFF)
 
 RunsUntilDoneOrInterrupted == 
   [][radiation = ON => radiation' = ON \/ timeRemaining' = 0 \/ door' = OPEN]_vars

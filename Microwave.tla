@@ -115,5 +115,3 @@ RunsUntilDoneOrInterrupted ==
     action := "power"
     action := "timer"
 *)
-
-\* DoorSafety == RequireSafety => radiation = ON => door = CLOSED

@@ -41,7 +41,7 @@ Is this notion of safety enough?
 *How do we know it won't accidentally keep running, overheat, and catch on fire?*
 
 We need some kind of `HeatLiveness` property.
-This reveals that the model could go into stuttering, i.e., staying in the same state without getting closer to finishing.
+This detects whether the model could go into stuttering, i.e., staying in the same state without getting closer to finishing.
 
 We need to enable weak fairness (WF) to break this stutter-invariance! 
 (See also [www.hillelwayne.com/post/fairness](https://www.hillelwayne.com/post/fairness).)

@@ -11,9 +11,12 @@ CONSTANTS
   ImplementOpenDoorSafety
 
 VARIABLES
-  \* See TypeOK below for type constraints
+  \* See TypeOK below for precise type constraints
+  \* The door can be either open or closed
   door,
+  \* The radiation can be either on or off
   radiation,
+  \* The time remaining for the radiation countdown
   timeRemaining
 
 \* Tuple of all variables
@@ -65,17 +68,13 @@ Tick ==
   /\ radiation = ON
   /\ timeRemaining' = timeRemaining - 1
   /\ timeRemaining' >= 0
-  /\ IF timeRemaining' = 0 
-     THEN radiation' = OFF 
-     ELSE UNCHANGED << radiation >>
+  /\ radiation' = IF timeRemaining' = 0 THEN OFF ELSE radiation
   /\ UNCHANGED << door >>
 
 \* Open door
 OpenDoor ==
   /\ door' = OPEN
-  /\ IF ImplementOpenDoorSafety 
-     THEN radiation' = OFF 
-     ELSE UNCHANGED << radiation >>
+  /\ radiation' = IF ImplementOpenDoorSafety THEN OFF ELSE radiation
   /\ UNCHANGED << timeRemaining >>
 
 \* Close door
@@ -96,7 +95,7 @@ Next ==
 Spec == Init /\ [][Next]_vars
 
 \* Valid system behaviors with weak fairness to disallow stuttering
-FSpec == Spec /\ WF_vars(Tick)
+FairSpec == Spec /\ WF_vars(Tick)
 
 \* Safety check to detect radiation with door open
 DoorSafety == door = OPEN => radiation = OFF

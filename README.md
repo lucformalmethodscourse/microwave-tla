@@ -46,6 +46,33 @@ This detects whether the model could go into stuttering, i.e., staying in the sa
 We need to enable weak fairness (WF) to break this stutter-invariance! 
 (See also [www.hillelwayne.com/post/fairness](https://www.hillelwayne.com/post/fairness).)
 
-## Other properties
+We can explore other temporal properties, e.g., `RunsUntilDoneOrInterrupted`.
 
-We can add other interesting properties, e.g., `RunsUntilDoneOrInterrupted`.
+## Checking the model in various configurations
+
+We have created separate configuration files reflecting the various possible model configuration settings.
+
+| Configuration | Result | Description |
+| --- | --- | --- |
+| Microwave.cfg | success | unsafe, unchecked |
+| MicrowaveChecked.cfg | safety failure | unsafe, checked |
+| MicrowaveChecked2.cfg | safety failure | still unsafe, checked |
+| MicrowaveSafe.cfg | success | safe and checked |
+| MicrowaveStuttering.cfg | liveness failure | stuttering |
+| MicrowaveLive.cfg | success | weak fairness |
+
+To check the model in any configuration other than the default (`Microwave.cfg`), you need to specify the corresponding `.cfg` file as an option either interactively or on the command-line.
+
+If you have Visual Studio Code installed, you can usually run the TLA+ model checker, TLC, as follows:
+
+```
+java -jar ~/.vscode/extensions/tlaplus.vscode-ide-*/tools/tla2tools.jar -config MicrowaveChecked2.cfg Microwave.tla
+```
+
+## Related publications
+
+We have included this example in various formal methods education papers and presentations:
+
+- [2025 TLA+ Community Event at ETAPS](https://conf.tlapl.us/2025-etaps/)
+- [Dec 2024 IEEE Computer magazine](https://ieeexplore.ieee.org/document/10754605)
+- [2024 IEEE Frontiers in Education conference (WIP)](https://ieeexplore.ieee.org/document/10893422)

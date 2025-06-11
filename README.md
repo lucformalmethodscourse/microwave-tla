@@ -74,5 +74,6 @@ java -jar ~/.vscode/extensions/tlaplus.vscode-ide-*/tools/tla2tools.jar -config 
 We have included this example in various formal methods education papers and presentations:
 
 - [2025 TLA+ Community Event at ETAPS](https://conf.tlapl.us/2025-etaps/)
-- [Dec 2024 IEEE Computer magazine](https://ieeexplore.ieee.org/document/10754605)
+- [2024 IEEE Computer magazine](https://ieeexplore.ieee.org/document/10754605)
 - [2024 IEEE Frontiers in Education conference (WIP)](https://ieeexplore.ieee.org/document/10893422)
+- [2024 Colab Notebook](https://figshare.com/articles/software/TLA_Model_Checking_in_Colab_Microwave_Oven_WIP_/27122916)

@@ -11,6 +11,7 @@ states/
 model/
 traces_*
 *_TTrace_*
+*_trace_T*
 
 .vscode
 **/.DS_Store

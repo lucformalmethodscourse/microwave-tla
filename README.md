@@ -55,18 +55,29 @@ We have created separate configuration files reflecting the various possible mod
 | Configuration | Result | Description |
 | --- | --- | --- |
 | Microwave.cfg | success | unsafe, unchecked |
-| MicrowaveChecked.cfg | safety failure | unsafe, checked |
-| MicrowaveChecked2.cfg | safety failure | still unsafe, checked |
-| MicrowaveSafe.cfg | success | safe and checked |
-| MicrowaveStuttering.cfg | liveness failure | stuttering |
-| MicrowaveLive.cfg | success | weak fairness |
+| Microwave_1_Checked.cfg | safety failure | unsafe, checked |
+| Microwave_2_PartiallySafe.cfg | safety failure | still unsafe, checked |
+| Microwave_3_Safe.cfg | success | safe and checked |
+| Microwave_4_Stuttering.cfg | liveness failure | stuttering |
+| Microwave_5_Live.cfg | success | weak fairness |
 
 To check the model in any configuration other than the default (`Microwave.cfg`), you need to specify the corresponding `.cfg` file as an option either interactively or on the command-line.
 
-If you have Visual Studio Code installed, you can usually run the TLA+ model checker, TLC, as follows:
+When using the TLA extension in Visual Studio Code, you can run the TLA+ model checker interactively:
+
+- right-click on ``Microwave.tla``
+- Check Model with TLC
+
+At this point, a dialog appears where you can add an option to choose the desired configuration, e.g.,
 
 ```
-java -jar ~/.vscode/extensions/tlaplus.vscode-ide-*/tools/tla2tools.jar -config MicrowaveChecked2.cfg Microwave.tla
+-config Microwave_1_Checked.cfg
+```
+
+In the same environment, you can also run TLC on the command line as follows:
+
+```
+java -jar ~/.vscode/extensions/tlaplus.vscode-ide-*/tools/tla2tools.jar -config Microwave_2_PartiallySafe.cfg Microwave.tla
 ```
 
 ## Related publications
